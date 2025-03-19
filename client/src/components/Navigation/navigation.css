@@ -1,0 +1,128 @@
+nav {
+    background: radial-gradient(circle at right top, #535252, #2e2e2e);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 7px 1px rgb(24, 24, 24);
+    /* box-shadow: 0px 0px 3px 1px rgb(36, 36, 37); */
+    width: 100%;
+}
+
+nav>ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.nav-link {
+    padding: 20px 40px;
+    max-width: 250px;
+}
+
+.logo {
+    padding-left: 50px;
+    flex-shrink: 0;
+}
+
+.nav-link>a,
+.logo>a {
+    color: rgb(247, 247, 247);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.profile {
+    height: 25px;
+    width: auto;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 1px #becfe2;
+}
+
+.profile:hover {
+    box-shadow: 0px 0px 5px 2px #e6ecf3;
+    cursor: pointer;
+}
+
+.nav-link>a,
+.nav-link>a:after,
+.nav-link>a:before,
+.profile,
+.profile:after,
+.profile:before,
+.logo>a,
+.logo>a:after,
+.logo>a:before {
+    transition: all 1.2s;
+}
+
+/* stroke */
+.nav-link>a,
+.nav-link>a {
+    position: relative;
+}
+
+.nav-link>a:after,
+.nav-link>a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #ffffffcb;
+    height: 1px;
+}
+
+.nav-link>a:hover:after {
+    width: 100%;
+}
+
+.nav-link>a:after {
+    text-align: left;
+    content: '.';
+    margin: 0;
+    opacity: 0;
+}
+
+.nav-link>a:hover:after {
+    /* z-index: -10; */
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+}
+
+.side-attr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    nav>ul {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .side-attr {
+        display: none;
+    }
+}

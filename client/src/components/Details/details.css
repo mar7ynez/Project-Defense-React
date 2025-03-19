@@ -1,0 +1,37 @@
+.details,
+.advance-details {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.image {
+    padding: 30px;
+}
+
+.image>img {
+    width: 650px;
+    box-shadow: 0px 0px 5px 2px rgb(214, 214, 214);
+}
+
+.details-content {
+    padding: 0px 100px;
+    width: 500px;
+}
+
+.details-content>h1 {
+    border-bottom: 1px solid rgb(255, 255, 255);
+    font-size: 28px;
+}
+
+.details-content>p {
+    font-size: 17px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+}
+
+.advance-details {
+    padding-top: unset;
+}

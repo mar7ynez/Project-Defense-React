@@ -1,0 +1,36 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/pexels-laarkstudio-7221399.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    opacity: 0.9;
+    box-shadow: 3px 3px 7px 2px rgb(17, 17, 17);
+    margin: 50px 50px;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+}
+
+.hero>h1 {
+    padding: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.hero-content>p {
+    padding: 30px;
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}

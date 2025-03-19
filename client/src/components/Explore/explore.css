@@ -1,0 +1,44 @@
+.products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    text-align: center;
+}
+
+.product {
+    padding: 20px;
+    display: flex;
+}
+
+.product>a {
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.product>a:hover {
+    background-color: rgba(255, 255, 255, 0.137);
+}
+
+.details-wrapper {
+    padding: 20px;
+    max-width: 200px;
+}
+
+.details-wrapper>img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.details-wrapper>p {
+    text-align: left;
+    font-size: 14px;
+    display: flex;
+}
+
+.details-wrapper>h4 {
+    justify-self: start;
+}
