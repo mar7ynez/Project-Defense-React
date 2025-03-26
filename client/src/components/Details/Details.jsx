@@ -1,19 +1,54 @@
+import { Link, useParams } from 'react-router';
+import { usePuzzle } from '../../services/hooks/puzzleApi';
+
+import DetailsList from './DetailsList/DetailsList';
+
 import './details.css';
 
 const Details = () => {
+    const { puzzleId } = useParams();
+    const { puzzle } = usePuzzle(puzzleId);
+
+    const {
+        puzzleName,
+        brand,
+        numOfPieces,
+        puzzleThickness,
+        puzzleSize,
+        material,
+        age,
+        description,
+        imageUrl } = puzzle;
+
+    const detailsContent = {
+        Brand: brand,
+        Pieces: numOfPieces,
+        Thickness: puzzleThickness,
+        Size: puzzleSize,
+        Material: material,
+        Age: age
+    }
+
     return (
         <>
             <section className="details">
                 <div className="image">
-                    <img src="https://render.fineartamerica.com/images/rendered/search/flat/puzzle/images/artworkimages/medium/2/the-119-union-pacific-engine-garry-gay.jpg?&targetx=-62&targety=0&imagewidth=1125&imageheight=750&modelwidth=1000&modelheight=750&backgroundcolor=31CCF7&orientation=0&producttype=puzzle-18-24&brightness=500&v=6" alt="" />
+                    <img src={imageUrl} alt={puzzleName} />
                 </div>
                 <div className="details-content">
-                    <h1>Пъзел Black Sea от 1000 части - Котешки портрети: Лъв</h1>
-                    <p>Black Sea Puzzles обединява екип от неуморни професионалисти, които имат за цел създаването на пъзели с уникална визия и безкомпромисно качество. Художници, дизайнери, заклети пъзел фенове и, не на последно място, мечтатели, работят ден след ден, за да носят вдъхновение, да впечатляват и да пленяват нови последователи в магията на реденето на пъзели. Историята, фолклора, съвременното и фентъзи изкуството са темите, които стоят в центъра на сюжетите на Black Sea Puzzles. Те са грижливо подбирани и са специално адаптирана за пъзели, изрязани в класическа форма на частите от висококачествен картон. Подходящи за хора от всички възрасти, а реденето им носи пристрастяващо изживяване.</p>
+                    <h1>{puzzleName}</h1>
+
+                    <DetailsList detailsContent={detailsContent} />
+
+                    <div className="owner-buttons">
+                        <Link to={`/explore/${puzzleId}/edit`}>Edit</Link>
+                        <Link>Delete</Link>
+                    </div>
                 </div>
             </section>
-            <section className='advance-details'>
-                <h1>Всички Характеристики</h1>
+            <section className='description'>
+                <h1>Description</h1>
+                <p>{description}</p>
             </section>
         </>
     );
