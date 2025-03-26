@@ -1,0 +1,90 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.item-form-wrapper {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background: linear-gradient(146deg, rgba(100, 99, 99, 0.945) 0%, rgba(73, 73, 75, 0.959) 50%, rgb(54, 54, 54) 100%);
+    box-shadow: 1px 2px 3px 1px rgba(10, 10, 10, 0.747);
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    color: white;
+    max-width: 550px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2%;
+}
+
+.item-form-wrapper>h1 {
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.item-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 80%;
+}
+
+.item-form>label {
+    font-size: 14px;
+}
+
+.item-form>input {
+    border: none;
+    outline: none;
+    margin-bottom: 15px;
+    height: 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: rgb(206, 206, 207);
+    border: 1px solid rgba(20, 20, 20, 0.781);
+    color: rgb(48, 48, 48);
+}
+
+.item-form>textarea {
+    outline: none;
+    border-radius: 8px;
+    min-width: 98%;
+    max-width: 98%;
+    min-height: 24px;
+    max-height: 150px;
+    font-size: 14px;
+    background-color: rgb(206, 206, 207);
+    border: 1px solid rgba(20, 20, 20, 0.781);
+    color: rgb(48, 48, 48);
+}
+
+.item-form>button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px 0px;
+    background: linear-gradient(100deg, rgb(124, 124, 124) 0%, rgb(100, 100, 100) 50%, rgb(138, 138, 138) 100%);
+    box-shadow: 0px 0px 4px 0px rgb(37, 37, 37);
+    border: 1px solid rgba(150, 150, 150, 0.61);
+    cursor: pointer;
+}
+
+.item-form>button:hover {
+    background: linear-gradient(100deg, rgb(124, 124, 124) 0%, rgb(126, 125, 125) 50%, rgb(138, 138, 138) 100%);
+    box-shadow: 0px 0px 4px 0px rgb(65, 65, 65);
+}
