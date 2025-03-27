@@ -1,13 +1,15 @@
-import { Link, useParams } from 'react-router';
-import { usePuzzle } from '../../services/hooks/puzzleApi';
+import { Link, useNavigate, useParams } from 'react-router';
+import { useDeletePuzzle, usePuzzle } from '../../services/hooks/puzzleApi';
 
 import DetailsList from './DetailsList/DetailsList';
 
 import './details.css';
 
 const Details = () => {
+    const navigate = useNavigate();
     const { puzzleId } = useParams();
     const { puzzle } = usePuzzle(puzzleId);
+    const { remove } = useDeletePuzzle();
 
     const {
         puzzleName,
@@ -29,6 +31,12 @@ const Details = () => {
         Age: age
     }
 
+    const deleteHandler = async () => {
+        await remove(puzzleId);
+
+        navigate('/explore');
+    }
+
     return (
         <>
             <section className="details">
@@ -42,7 +50,7 @@ const Details = () => {
 
                     <div className="owner-buttons">
                         <Link to={`/explore/${puzzleId}/edit`}>Edit</Link>
-                        <Link>Delete</Link>
+                        <button onClick={deleteHandler}>Delete</button>
                     </div>
                 </div>
             </section>
