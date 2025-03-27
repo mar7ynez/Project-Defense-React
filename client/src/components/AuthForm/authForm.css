@@ -66,14 +66,12 @@
     border: none;
     border-radius: 15px;
     font-size: 15px;
-    background: linear-gradient(100deg, rgb(128, 165, 233) 0%, rgb(107, 133, 180) 50%, rgb(128, 165, 233) 100%);
     background: linear-gradient(100deg, rgb(124, 124, 124) 0%, rgb(100, 100, 100) 50%, rgb(138, 138, 138) 100%);
     box-shadow: 0px 0px 4px 0px rgb(37, 37, 37);
     border: 1px solid rgba(150, 150, 150, 0.61);
 }
 
 .form>div>button:hover {
-    background: linear-gradient(100deg, rgb(107, 133, 180) 0%, rgb(128, 165, 233) 50%, rgb(107, 133, 180) 100%);
     background: linear-gradient(100deg, rgb(124, 124, 124) 0%, rgb(126, 125, 125) 50%, rgb(138, 138, 138) 100%);
 }
 
