@@ -1,21 +1,16 @@
-import { Link } from "react-router";
+import { usePuzzles } from '../../services/hooks/puzzleApi';
+
+import ExploreItem from './ExploreItem/ExploreItem';
 
 import './explore.css';
 
 const Explore = () => {
+    const { puzzles } = usePuzzles();
+
     return (
-        <>
-            <div className='products-wrapper'>
-                <div className="product">
-                    <Link to={'/details'}>
-                        <div className="details-wrapper">
-                            <img src="https://www.jigsawpuzzlesdirect.co.uk/cdn/shop/products/educa-wild-animal-collage-500-piece-jigsaw-puzzle-267189-p_grande.jpg?v=1698668012" alt="Puzzle Name" />
-                            <p>Пъзел Clementoni от 104 макси части - Спайдърмен</p>
-                        </div>
-                    </Link>
-                </div>
-            </div>
-        </>
+        <div className='items-wrapper'>
+            {puzzles.map(puzzle => <ExploreItem key={puzzle._id} {...puzzle} />)}
+        </div>
     );
 }
 
