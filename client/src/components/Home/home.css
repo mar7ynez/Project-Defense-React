@@ -17,7 +17,7 @@
 
 .hero>h1 {
     padding: 10px;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
     font-style: italic;
     text-align: center;
@@ -30,7 +30,32 @@
     padding: 30px;
     text-align: center;
     font-style: italic;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: white;
+}
+
+.hero-btn {
+    margin-top: 30px;
+}
+
+.hero-btn>a {
+    text-decoration: none;
+    border: 1px solid rgba(133, 129, 129, 0.616);
+    border-radius: 10px;
+    padding: 8px 40px;
+    background: linear-gradient(100deg, rgba(164, 164, 164, 1) 0%, rgba(205, 205, 205, 1) 50%, rgba(158, 158, 158, 1) 100%);
+    text-transform: uppercase;
+    color: rgba(73, 73, 73, 0.877);
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    box-shadow: 0px 0px 4px 2px rgb(250, 250, 250);
+    font-style: italic;
+}
+
+.hero-btn>a:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 1px rgb(250, 250, 250);
+    transform: rotateY(3.142rad);
 }
