@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import './home.css';
 
 const Home = () => {
@@ -7,6 +9,10 @@ const Home = () => {
                 <h1>Create, Solve, and Connect – The Ultimate Puzzle Community!</h1>
                 <div className="hero-content">
                     <p>Turn your ideas into interactive puzzles, challenge others, and engage with a global community of puzzle lovers! Upload, solve, comment, and share every puzzle is a new adventure waiting to be explored.</p>
+                </div>
+
+                <div className="hero-btn">
+                    <Link to={'/explore'}>Explore now</Link>
                 </div>
             </section>
         </>
