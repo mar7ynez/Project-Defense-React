@@ -65,7 +65,8 @@
     justify-content: end;
 }
 
-.owner-buttons>a {
+.owner-buttons>a,
+.owner-buttons>button {
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -82,11 +83,12 @@
     cursor: pointer;
 }
 
-.owner-buttons>a:first-child {
+.owner-buttons>a {
     background: linear-gradient(100deg, rgb(236, 190, 130) 0%, rgb(224, 161, 79) 50%, rgb(230, 158, 65) 100%);
 }
 
-.owner-buttons>a:hover {
+.owner-buttons>a:hover,
+.owner-buttons>button:hover {
     box-shadow: 0px 0px 2px 1px rgb(105, 105, 105);
 }
 
