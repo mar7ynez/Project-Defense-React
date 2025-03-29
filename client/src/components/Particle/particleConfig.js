@@ -4,7 +4,7 @@ export const particlesConfig = {
             "value": 108,
             "density": {
                 "enable": true,
-                "value_area": 800
+                "value_area": 650
             }
         },
         "color": {
@@ -56,7 +56,7 @@ export const particlesConfig = {
             "enable": true,
             "speed": 0.5,
             "direction": "none",
-            "random": true,
+            "random": false,
             "straight": false,
             "out_mode": "out",
             "bounce": false,
@@ -82,8 +82,8 @@ export const particlesConfig = {
                 }
             },
             "repulse": {
-                "distance": 200,
-                "duration": 3
+                "distance": 150,
+                "duration": 0.5
             },
             "bubble": {
                 "distance": 250,
