@@ -1,6 +1,6 @@
 import { usePuzzles } from '../../services/hooks/puzzleApi';
 
-import ExploreItem from './ExploreItem/ExploreItem';
+import ExploreItem from '../ExploreItem/ExploreItem';
 
 import './explore.css';
 
