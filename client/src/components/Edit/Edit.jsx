@@ -13,10 +13,14 @@ const Edit = () => {
     const editHandler = async (_, formData) => {
         const formValues = Object.fromEntries(formData);
 
+        if (Object.values(formValues).some(value => !value)) {
+            return;
+        }
+
         try {
             await edit(puzzleId, formValues);
         } catch (error) {
-            alert(error);
+            alert(error.message);
         }
 
         navigate(`/explore/${puzzleId}/details`);
