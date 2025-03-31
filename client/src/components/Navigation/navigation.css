@@ -10,6 +10,7 @@ nav {
 
 nav>ul {
     margin: 0;
+    margin-left: 40px;
     padding: 0;
     display: flex;
     list-style: none;
@@ -39,38 +40,26 @@ nav>ul {
     font-size: 14px;
 }
 
-.profile {
-    height: 25px;
-    width: auto;
-    border-radius: 50%;
-    box-shadow: 0px 0px 2px 1px #becfe2;
-}
-
-.profile:hover {
-    box-shadow: 0px 0px 5px 2px #e6ecf3;
-    cursor: pointer;
-}
-
 .nav-link>a,
 .nav-link>a:after,
 .nav-link>a:before,
-.profile,
-.profile:after,
-.profile:before,
 .logo>a,
 .logo>a:after,
-.logo>a:before {
+.logo>a:before,
+.auth-link>a,
+.auth-link>a::after,
+.auth-link>a::before {
     transition: all 1.2s;
 }
 
 /* stroke */
 .nav-link>a,
-.nav-link>a {
+.auth-link>a {
     position: relative;
 }
 
 .nav-link>a:after,
-.nav-link>a:after {
+.auth-link>a::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -83,18 +72,21 @@ nav>ul {
     height: 1px;
 }
 
-.nav-link>a:hover:after {
+.nav-link>a:hover:after,
+.auth-link>a:hover:after {
     width: 100%;
 }
 
-.nav-link>a:after {
+.nav-link>a:after,
+.auth-link>a:after {
     text-align: left;
     content: '.';
     margin: 0;
     opacity: 0;
 }
 
-.nav-link>a:hover:after {
+.nav-link>a:hover:after,
+.auth-link>a:hover:after {
     /* z-index: -10; */
     animation: fill 1s forwards;
     -webkit-animation: fill 1s forwards;
@@ -102,12 +94,23 @@ nav>ul {
     opacity: 1;
 }
 
-.side-attr {
+.auth-links-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding-right: 50px;
+}
+
+.auth-link {
+    display: flex;
+    padding-right: 30px;
+    width: 60px;
+}
+
+.auth-link>a {
+    color: rgb(247, 247, 247);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
 }
 
 /* Responsive Design */
