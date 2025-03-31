@@ -9,9 +9,17 @@ export const Register = () => {
     const { authHandler } = useContext(UserContext);
 
     const registerHandler = async (prevState, formData) => {
-        try {
-            const userData = Object.fromEntries(formData);
+        const userData = Object.fromEntries(formData);
 
+        if (Object.values(userData).some(value => !value)) {
+            return;
+        }
+
+        if (userData.password.length < 6 || userData.password !== userData.rePassword) {
+            return;
+        }
+
+        try {
             const registeredUser = await register(userData);
 
             if (!registeredUser) {
@@ -20,7 +28,7 @@ export const Register = () => {
 
             authHandler(registeredUser);
         } catch (error) {
-            alert(error);
+            alert(error.message);
         }
     }
 
