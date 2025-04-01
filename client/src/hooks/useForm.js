@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const useForm = (initialFormData, initialFormErrors, validate) => {
     const [formData, setFormData] = useState(initialFormData);
-    const [touched, setTouched] = useState({});
+    const [touched, setTouched] = useState({ oldPassword: true });
     const [formErrors, setError] = useState(initialFormErrors);
 
     const changeHandler = (e) => {
@@ -49,6 +49,6 @@ export const useForm = (initialFormData, initialFormErrors, validate) => {
         formErrors,
         changeHandler,
         blurHandler,
-        isFormValid
+        isFormValid,
     };
 }
