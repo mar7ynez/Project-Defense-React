@@ -4,6 +4,7 @@ const requester = async (method, url, data) => {
     const options = {
         method,
         headers: {},
+        credentials: 'include'
     }
 
     if (data) {
@@ -11,7 +12,7 @@ const requester = async (method, url, data) => {
         options.body = JSON.stringify(data);
     }
 
-    const userData = localStorage.getItem('userData');
+    const userData = JSON.parse(localStorage.getItem('userData'));
 
     if (userData) {
         options.headers['X-Authorization'] = userData.accessToken;
@@ -21,7 +22,9 @@ const requester = async (method, url, data) => {
         const response = await fetch(`${host}/${url}`, options);
 
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const responseError = await response.json();
+            
+            throw new Error(responseError.message || `Response status: ${response.status}`);
         }
 
         if (response.status === 204) {
@@ -32,7 +35,7 @@ const requester = async (method, url, data) => {
         return json;
 
     } catch (error) {
-        alert(error);
+        alert(error.message);
     }
 };
 
