@@ -18,3 +18,17 @@ body {
     height: 100vh;
     z-index: -1 !important;
 }
+
+.form-error {
+    display: flex;
+    justify-self: start;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(214, 3, 3);
+    text-transform: none;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
