@@ -12,14 +12,26 @@ export const Login = () => {
     const loginHandler = async (prevState, formData) => {
         const userData = Object.fromEntries(formData);
 
+        if (Object.values(userData).some(value => !value)) {
+            return;
+        }
+
+        if (userData.password.length < 6) {
+            return;
+        }
+
         try {
             const loggedInUser = await login(userData);
+
+            if (!loggedInUser) {
+                return;
+            }
 
             authHandler(loggedInUser);
 
             navigate(-1);
         } catch (error) {
-            alert(error);
+            alert(error.message);
         };
     };
 
