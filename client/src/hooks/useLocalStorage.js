@@ -13,6 +13,10 @@ export const useLocalStorage = (initialState) => {
 
     const setUserData = (input) => {
         const data = typeof input === 'function' ? input(state) : input;
+        
+        if (data === undefined) {
+            return;
+        }
 
         localStorage.setItem('userData', JSON.stringify(data));
 
