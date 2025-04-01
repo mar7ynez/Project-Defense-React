@@ -1,0 +1,99 @@
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(12, 11, 11, 0.623);
+    padding: 50px 0;
+    min-height: 80.4vh;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.profile-content {
+    display: inline-block;
+    max-width: 300px;
+}
+
+.actual-content {
+    padding-top: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-profile>h4 {
+    text-align: center;
+}
+
+.about-profile>p {
+    text-align: center;
+    max-width: 250px;
+}
+
+.actual-content>img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 20%;
+}
+
+.profile-form {
+    display: flex;
+    justify-content: end;
+    color: white;
+    max-width: 700px;
+    width: 100%;
+}
+
+.profile-form>form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 0 20px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.profile-form>form>input,
+.profile-form>form>textarea {
+    border: none;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    padding: 5px 0px;
+    max-height: 200px;
+    font-size: 14px;
+}
+
+.profile-form>form>textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.profile-form>form>input:focus,
+.profile-form>form>textarea:focus {
+    outline: none;
+    border: none;
+}
+
+.edit-button {
+    max-width: 150px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.edit-button>button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: rgb(37, 37, 37);
+    background: linear-gradient(100deg, rgb(199, 199, 199) 0%, rgba(231, 231, 231, 1) 50%, rgb(194, 194, 194) 100%);
+    box-shadow: 0px 0px 3px 1px rgb(226, 226, 226);
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.edit-button>button:hover {
+    background: linear-gradient(100deg, rgb(155, 155, 155) 0%, rgb(223, 223, 223) 50%, rgb(168, 168, 168) 100%);
+}
