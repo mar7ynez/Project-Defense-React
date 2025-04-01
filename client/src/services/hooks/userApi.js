@@ -6,6 +6,7 @@ import { UserContext } from '../../contexts/userContext.js';
 const endpoints = {
     register: 'users/register',
     login: 'users/login',
+    updateProfile: (userId) => `users/${userId}`,
     logout: 'users/logout'
 };
 
@@ -26,6 +27,16 @@ export const useLogin = () => {
 
     return {
         login,
+    };
+};
+
+export const useUpdate = () => {
+    const update = (userId, updateData) => {
+        return requester.put(endpoints.updateProfile(userId), updateData);
+    };
+
+    return {
+        update,
     };
 };
 
