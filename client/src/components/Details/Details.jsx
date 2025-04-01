@@ -4,12 +4,17 @@ import { useDeletePuzzle, usePuzzle } from '../../services/hooks/puzzleApi';
 import DetailsList from './DetailsList/DetailsList';
 
 import './details.css';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 
 const Details = () => {
     const navigate = useNavigate();
     const { puzzleId } = useParams();
     const { puzzle } = usePuzzle(puzzleId);
     const { remove } = useDeletePuzzle();
+    const { _id, accessToken } = useContext(UserContext);
+
+    const isOwner = puzzle._ownerId === _id;
 
     const {
         puzzleName,
@@ -48,10 +53,12 @@ const Details = () => {
 
                     <DetailsList detailsContent={detailsContent} />
 
-                    <div className="owner-buttons">
-                        <Link to={`/explore/${puzzleId}/edit`}>Edit</Link>
-                        <button onClick={deleteHandler}>Delete</button>
-                    </div>
+                    {isOwner && accessToken &&
+                        <div className="owner-buttons">
+                            <Link to={`/explore/${puzzleId}/edit`}>Edit</Link>
+                            <button onClick={deleteHandler}>Delete</button>
+                        </div>
+                    }
                 </div>
             </section>
             <section className='description'>
