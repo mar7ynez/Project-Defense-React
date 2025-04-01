@@ -1,12 +1,15 @@
 import { Link } from "react-router";
 
 import './dropdown.css';
+import { useContext } from "react";
+import { UserContext } from "../../contexts/userContext";
 
 const Dropdown = ({ isToggled }) => {
+    const { username } = useContext(UserContext);
     return (
         <div className={`dropdown-menu ${isToggled && 'show-dropdown'}`}>
             <div className="dropdown-user">
-                <h3>@Username</h3>
+                <h3>@{username}</h3>
             </div>
             <div className="dropdown-links-wrapper">
                 <Link to={'/my-puzzles'} className="dropdown-link">
