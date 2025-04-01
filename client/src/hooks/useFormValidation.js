@@ -6,7 +6,7 @@ export const useFormValidation = (customErrors) => {
             return "Confirm password does not match!";
         }
 
-        if (value) {
+        if (value || !initialErrors[name]) {
             return errors[name];
         }
 
