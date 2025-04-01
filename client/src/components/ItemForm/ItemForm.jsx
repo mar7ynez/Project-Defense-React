@@ -20,8 +20,10 @@ const ItemForm = ({ isShare,
     isPending }) => {
     const { initialFormData, initialFormErrors, customErrors } = itemFormConsts;
 
+    const initialErrors = isShare ? initialFormErrors : {};
+
     const { validate } = useFormValidation(customErrors);
-    const { touched, formErrors, changeHandler, blurHandler, isFormValid } = useForm(initialFormData, initialFormErrors, validate);
+    const { touched, formErrors, changeHandler, blurHandler, isFormValid } = useForm(initialFormData, initialErrors, validate);
 
     return (
         <div className="wrapper">
@@ -64,7 +66,7 @@ const ItemForm = ({ isShare,
                     <FormError touched={touched} formErrors={formErrors} name='description' />
                     <textarea name="description" id="description" defaultValue={description} onChange={changeHandler} onBlur={blurHandler} />
 
-                    <button className={isShare && !isFormValid(false) || isPending ? 'disabled' : ''} type="submit">{isShare ? 'Share' : 'Edit'}</button>
+                    <button className={!isFormValid(false) || isPending ? 'disabled' : ''} type="submit">{isShare ? 'Share' : 'Edit'}</button>
                 </form>
             </div>
         </div>
