@@ -3,6 +3,7 @@ import * as requester from "../apiService";
 
 const endpoints = {
     getAll: 'puzzles',
+    getMyPuzzles: 'puzzles/my-puzzles',
     getOne: (puzzleId) => `puzzles/${puzzleId}`,
     editPuzzle: (puzzleId) => `puzzles/${puzzleId}`
 };
@@ -12,6 +13,21 @@ export const usePuzzles = () => {
 
     useEffect(() => {
         requester.get(endpoints.getAll).
+            then(puzzles => {
+                setPuzzles(puzzles);
+            });
+    }, []);
+
+    return {
+        puzzles
+    };
+};
+
+export const useMyPuzzles = () => {
+    const [puzzles, setPuzzles] = useState([]);
+
+    useEffect(() => {
+        requester.get(endpoints.getMyPuzzles).
             then(puzzles => {
                 setPuzzles(puzzles);
             });
