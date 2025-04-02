@@ -3,6 +3,7 @@ import { useRegister } from '../../services/hooks/userApi';
 import { UserContext } from '../../contexts/userContext';
 
 import AuthForm from '../AuthForm/AuthForm';
+import { toast } from 'react-toastify';
 
 export const Register = () => {
     const { register } = useRegister();
@@ -28,7 +29,7 @@ export const Register = () => {
 
             authHandler(registeredUser);
         } catch (error) {
-            alert(error.message);
+            toast.error(error.message);
         }
     }
 
