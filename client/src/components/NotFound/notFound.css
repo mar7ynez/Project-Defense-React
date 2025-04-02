@@ -1,0 +1,50 @@
+.not-found {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 91.3vh;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: rgb(39, 39, 39);
+}
+
+.not-found>h1 {
+    margin: 0;
+    font-size: 150px;
+}
+
+.not-found>h2 {
+    font-size: 55px;
+}
+
+.not-found>p {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.home-button {
+    max-width: 200px;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.home-button>a {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 40px;
+    width: 100%;
+    border: none;
+    background-color: rgb(47, 50, 53);
+    background: linear-gradient(100deg, rgb(105, 109, 112) 0%, rgb(71, 75, 78) 50%, rgb(43, 45, 48) 100%);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgb(78, 78, 78);
+}
+
+.home-button>a:hover {
+    background: linear-gradient(100deg, rgb(117, 118, 121) 0%, rgb(89, 93, 95) 50%, rgb(53, 55, 58) 100%);
+}
