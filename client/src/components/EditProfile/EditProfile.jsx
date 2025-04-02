@@ -1,4 +1,4 @@
-import { useActionState, useContext } from 'react';
+import { useActionState, useContext, useState } from 'react';
 import { useUpdate } from '../../services/hooks/userApi';
 import { UserContext } from '../../contexts/userContext';
 import { useForm } from '../../hooks/useForm';
@@ -6,18 +6,21 @@ import { useFormValidation } from '../../hooks/useFormValidation';
 import * as profileFormConsts from '../../constants/profileFormConsts';
 
 import FormError from '../FormError/FormError';
+import { toast } from 'react-toastify';
 
+import defaultImage from '/default-profile.png';
 import './editProfile.css';
 
 const EditProfile = () => {
-    const { _id, email, username, about, authHandler } = useContext(UserContext);
+    const { userData, _id: userId, email, username, about, image, authHandler } = useContext(UserContext);
 
     const initialFormData = profileFormConsts.initialFormData(username, email, about);
     const { initialFormErrors, customErrors } = profileFormConsts;
 
-    const { update } = useUpdate();
+    const { update, updateAvatar } = useUpdate();
     const { validate } = useFormValidation(customErrors);
     const { touched, formErrors, changeHandler, blurHandler, isFormValid } = useForm(initialFormData, initialFormErrors, validate);
+    const [avatarUrl, setAvatarUrl] = useState(image || defaultImage);
 
     const profileUpdateHandler = async (prevState, formData) => {
         const updateData = Object.fromEntries(formData);
@@ -27,22 +30,52 @@ const EditProfile = () => {
                 throw new Error('Please check your input and try again!');
             }
 
-            const updatedData = await update(_id, updateData);
+            const updatedData = await update(userId, updateData);
 
-            authHandler(updatedData);
+            authHandler({ ...userData, ...updatedData });
         } catch (error) {
-            alert(error.message);
+            toast.error(error.message);
         }
     };
 
     const [, formAction, isPending] = useActionState(profileUpdateHandler);
 
+    const uploadImageHandler = async (e) => {
+        const uploadedFile = e.target.files[0];
+
+        if (!uploadedFile) {
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', uploadedFile);
+
+        try {
+            const updatedProfile = await updateAvatar(userId, formData);
+
+            setAvatarUrl(updatedProfile?.image);
+
+            authHandler({ ...userData, image: updatedProfile.image });
+        } catch (error) {
+            setAvatarUrl(defaultImage);
+            toast.error(error.message);
+        }
+    };
+
     return (
         <div className='profile-wrapper'>
             <div className='actual-content'>
-                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                <div className='avatar'>
+                    <img src={avatarUrl} alt="" />
+                    <form encType='multipart/form-data'>
+                        <label htmlFor="image">Change Avatar</label>
+                        <input type="file" id='image' onChange={uploadImageHandler} />
+                    </form>
+                </div>
+
                 <h2>@{username}</h2>
                 <p>{email}</p>
+
                 <div className='about-profile'>
                     <h4>About</h4>
                     <p>{about}</p>
