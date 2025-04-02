@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const host = 'http://localhost:3030';
 
 const requester = async (method, url, data) => {
@@ -8,8 +10,12 @@ const requester = async (method, url, data) => {
     }
 
     if (data) {
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(data);
+        if (data instanceof FormData) {
+            options.body = data;
+        } else {
+            options.headers['Content-Type'] = 'application/json';
+            options.body = JSON.stringify(data);
+        }
     }
 
     const userData = JSON.parse(localStorage.getItem('userData'));
@@ -23,7 +29,7 @@ const requester = async (method, url, data) => {
 
         if (!response.ok) {
             const responseError = await response.json();
-            
+
             throw new Error(responseError.message || `Response status: ${response.status}`);
         }
 
@@ -35,7 +41,7 @@ const requester = async (method, url, data) => {
         return json;
 
     } catch (error) {
-        alert(error.message);
+        toast.error(error.message);
     }
 };
 
