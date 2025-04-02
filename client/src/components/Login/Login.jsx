@@ -4,6 +4,8 @@ import AuthForm from '../AuthForm/AuthForm';
 import { UserContext } from '../../contexts/userContext';
 import { useNavigate } from 'react-router';
 
+import { toast } from 'react-toastify';
+
 export const Login = () => {
     const navigate = useNavigate();
     const { login } = useLogin();
@@ -31,7 +33,7 @@ export const Login = () => {
 
             navigate(-1);
         } catch (error) {
-            alert(error.message);
+            toast.error(error.message);
         };
     };
 
