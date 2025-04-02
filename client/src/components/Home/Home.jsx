@@ -1,8 +1,13 @@
 import { Link } from "react-router";
+import { useTopPuzzles } from "../../services/hooks/puzzleApi";
+
+import ExploreItem from "../ExploreItem/ExploreItem";
 
 import './home.css';
 
 const Home = () => {
+    const { topPuzzles } = useTopPuzzles();
+
     return (
         <>
             <section className='hero'>
@@ -14,6 +19,12 @@ const Home = () => {
                 <div className="hero-btn">
                     <Link to={'/explore'}>Explore now</Link>
                 </div>
+            </section>
+            <div className="top-head">
+                <h2>Top Puzzles</h2>
+            </div>
+            <section className="items-wrapper">
+                {topPuzzles.map(puzzle => <ExploreItem key={puzzle._id} {...puzzle} />)}
             </section>
         </>
     );
