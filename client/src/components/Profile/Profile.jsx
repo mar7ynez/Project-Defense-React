@@ -1,10 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 
 import Dropdown from '../Dropdown/Dropdown';
 
+import defaultImage from '/default-profile.png';
 import './profile.css';
 
 const Profile = () => {
+    const { image } = useContext(UserContext);
     const [isToggled, setToggle] = useState(false);
     const dropdownRef = useRef();
 
@@ -31,7 +34,7 @@ const Profile = () => {
     return (
         <div className="side-attr" ref={dropdownRef}>
             <div className="profile" onClick={profileClickHandler}>
-                <img className="profile-img" src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="" />
+                <img className="profile-img" src={image || defaultImage} alt="" />
             </div>
             <Dropdown isToggled={isToggled} />
         </div>
