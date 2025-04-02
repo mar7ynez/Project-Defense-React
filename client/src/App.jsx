@@ -14,10 +14,13 @@ import Edit from "./components/Edit/Edit";
 import Logout from "./components/Logout/Logout";
 import MyPuzzles from "./components/MyPuzzles/MyPuzzles";
 import EditProfile from "./components/EditProfile/EditProfile";
+import NotFound from "./components/NotFound/NotFound";
 
 import UserProvider from "./providers/UserProvider";
 import AuthGuard from "./guards/AuthGuard";
 import GuestGuard from "./guards/GuestGuard";
+
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/about" element={<About />} />
         <Route path="/explore/:puzzleId/details" element={<Details />} />
+        <Route path="*" element={<NotFound />} />
 
         <Route element={<GuestGuard />}>
           <Route path="/login" element={<Login />} />
@@ -43,6 +47,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </UserProvider>
   );
 };
