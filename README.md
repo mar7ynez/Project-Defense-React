@@ -32,7 +32,7 @@
 </ul><ul>
 <li>Set up environment variables: Create a .env file in the server directory and add the necessary variables:</li>
   <li>DB_URI="mongodb://localhost:27017/puzzle-hub"</li>
-  <li>JWT_KEY="JWT_GOES_HERE"</li>
+  <li>JWT_KEY="JWT_SECRE_GOES_HERE"</li>
 </ul><ul>
 <li>Run the application: In one terminal window, run the server (back-end): cd server &gt; npm run dev</li>
 </ul><ul>
