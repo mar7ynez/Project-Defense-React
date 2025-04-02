@@ -5,7 +5,6 @@
     padding: 50px 0;
     min-height: 80.4vh;
     font-family: "Montserrat", sans-serif;
-
 }
 
 .profile-content {
@@ -22,6 +21,7 @@
 }
 
 .about-profile>h4 {
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -30,10 +30,17 @@
     max-width: 250px;
 }
 
-.actual-content>img {
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar>img {
     max-width: 200px;
     width: 100%;
-    border-radius: 20%;
+    border-radius: 50%;
+    padding: 15px;
 }
 
 .profile-form {
@@ -81,7 +88,8 @@
     padding: 20px 0;
 }
 
-.edit-button>button {
+.edit-button>button,
+.avatar>form>label {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: rgb(37, 37, 37);
@@ -96,4 +104,13 @@
 
 .edit-button>button:hover {
     background: linear-gradient(100deg, rgb(155, 155, 155) 0%, rgb(223, 223, 223) 50%, rgb(168, 168, 168) 100%);
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.avatar>form>label {
+    padding: 4px 15px;
+    font-size: 12px;
 }
