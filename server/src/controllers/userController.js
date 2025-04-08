@@ -55,7 +55,7 @@ userController.put('/:userId', async (req, res) => {
 
         const updatedData = await userService.updateProfile(userId, updateData);
 
-        res.cookie('auth', accessToken, { httpOnly: true });
+        res.cookie('auth', updatedData.accessToken, { httpOnly: true });
         res.status(200).json(updatedData);
     } catch (error) {
         res.status(400).json({ message: getErrorMessage(error) || 'Check your input and try again!' });
