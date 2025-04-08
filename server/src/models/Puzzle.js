@@ -18,7 +18,7 @@ const puzzleSchema = new mongoose.Schema({
         required: [true, 'Puzzle thickness is required!'],
     },
     puzzleSize: {
-        type: Number,
+        type: String,
         required: [true, 'Puzzle size is required!'],
     },
     material: {
